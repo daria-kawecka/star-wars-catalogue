@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { CharactersContext } from '../../providers/CharactersProvider';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
@@ -19,15 +19,17 @@ const ListHeader = styled.p`
   text-transform: uppercase;
 `;
 const CharacterList = () => {
-  const { characters } = useContext(CharactersContext);
-  const { counter } = useContext(CharactersContext);
-  console.log(counter);
+  const { filteredCharacters, counter } = useContext(CharactersContext);
+  const [offset, setOffset] = useState(0);
+
   return (
     <StyledCharacterList>
       <ListHeader>A long time ago in a galaxy far, far away...</ListHeader>
-      {characters.slice(0, counter).map((character, index) => (
-        <CharacterListItem key={index} characterData={character} />
-      ))}
+      {filteredCharacters.length
+        ? filteredCharacters.slice(0, counter).map((character, index) => {
+            return <CharacterListItem key={index} number={index} characterData={character} />;
+          })
+        : 'ładowanie'}
       <ShowMoreButton />
     </StyledCharacterList>
   );
