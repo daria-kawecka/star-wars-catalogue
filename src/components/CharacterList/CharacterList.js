@@ -1,23 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { CharactersContext } from '../../providers/CharactersProvider';
-import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
-import CharacterListItem from '../CharacterListItem/CharacterListItem';
-import LoadingData from '../LoadingData/LoadingData';
-const StyledCharacterList = styled.ul`
-  padding: 15px 0px;
-  width: 35%;
-  margin: 15px auto;
-  border-radius: 15px;
-  cursor: default;
-`;
-const ListHeader = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.xl};
-  color: ${({ theme }) => theme.colors.yellow};
-  text-align: center;
-  font-weight: 700;
-  text-transform: uppercase;
-`;
+import { StyledCharacterList, ListHeader } from './CharacterList.styles';
+import { CharactersContext } from 'providers/CharactersProvider';
+import ShowMoreButton from 'components/ShowMoreButton/ShowMoreButton';
+import CharacterListItem from 'components/CharacterListItem/CharacterListItem';
+import LoadingData from 'components/LoadingData/LoadingData';
+
 const CharacterList = () => {
   const { filteredCharacters, counter } = useContext(CharactersContext);
 

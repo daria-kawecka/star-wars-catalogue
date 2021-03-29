@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { CharactersContext } from 'providers/CharactersProvider';
+import { calculateAge } from 'data/calculateAge';
 import LoadingData from '../LoadingData/LoadingData';
 import axios from 'axios';
 
@@ -20,12 +21,10 @@ const CharacterInfo = ({ name }) => {
       })
     );
   };
+
   useEffect(() => {
     setCharacterInfo(...filteredCharacters.filter((character) => character.name === name));
     setIsDataReceived(true);
-  }, []);
-
-  useEffect(() => {
     if (isDataReceived) {
       getData(characterInfo.films);
     }
@@ -34,6 +33,7 @@ const CharacterInfo = ({ name }) => {
   return (
     <div>
       <p>{characterInfo.height} cm</p>
+      {calculateAge(characterInfo.birth_year)}
       {isLoaded ? movieInfo.map((title, index) => <p key={index}>{title}</p>) : <LoadingData size="small" />}
     </div>
   );

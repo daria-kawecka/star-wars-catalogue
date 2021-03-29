@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Quicksand',sans-serif;
     background: #151414;
+    overflow-x: hidden;
   }
 
   a, button {

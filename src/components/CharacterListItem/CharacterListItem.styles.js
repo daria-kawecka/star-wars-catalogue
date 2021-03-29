@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 export const StyledListElement = styled.li`
   color: ${({ theme }) => theme.colors.light};
+  width: 35%;
   padding: 35px;
   list-style: none;
   text-decoration: none;
@@ -8,7 +9,6 @@ export const StyledListElement = styled.li`
   text-align: center;
   text-transform: uppercase;
   border-bottom: 1px solid ${({ theme }) => theme.colors.light};
-  width: 100%;
   &:nth-last-of-type(1) {
     border-bottom: none;
   }
