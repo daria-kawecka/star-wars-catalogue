@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { CharactersContext } from '../../providers/CharactersProvider';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
 import CharacterListItem from '../CharacterListItem/CharacterListItem';
-
+import LoadingData from '../LoadingData/LoadingData';
 const StyledCharacterList = styled.ul`
   padding: 15px 0px;
   width: 35%;
@@ -20,16 +20,17 @@ const ListHeader = styled.p`
 `;
 const CharacterList = () => {
   const { filteredCharacters, counter } = useContext(CharactersContext);
-  const [offset, setOffset] = useState(0);
 
   return (
     <StyledCharacterList>
       <ListHeader>A long time ago in a galaxy far, far away...</ListHeader>
-      {filteredCharacters.length
-        ? filteredCharacters.slice(0, counter).map((character, index) => {
-            return <CharacterListItem key={index} number={index} characterData={character} />;
-          })
-        : 'ładowanie'}
+      {filteredCharacters.length ? (
+        filteredCharacters.slice(0, counter).map((character, index) => {
+          return <CharacterListItem key={index} number={index} characterData={character} />;
+        })
+      ) : (
+        <LoadingData size="big" />
+      )}
       <ShowMoreButton />
     </StyledCharacterList>
   );
