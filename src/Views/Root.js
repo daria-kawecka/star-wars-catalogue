@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from 'assets/styles/GlobalStyles';
 import { theme } from 'assets/styles/theme';
+import StarfieldAnimation from 'react-starfield-animation';
 import CharacterProviders from 'providers/CharactersProvider';
 import CharacterList from 'components/CharacterList/CharacterList';
 import Search from 'components/Search/Search';
@@ -10,6 +11,14 @@ const Root = () => {
     <div>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
+        <StarfieldAnimation
+          style={{
+            position: 'fixed',
+            width: '100%',
+            height: '100%',
+            zIndex: '-1',
+          }}
+        />
         <CharacterProviders>
           <Search></Search>
           <CharacterList />

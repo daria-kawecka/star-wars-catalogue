@@ -12,7 +12,7 @@ const CharacterInfo = ({ name }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const getData = (apiArr) => {
-    axios.all(apiArr.map((l) => axios.get(l))).then(
+    axios.all(apiArr.map((arr) => axios.get(arr))).then(
       axios.spread(function (...res) {
         res.map((r) => {
           setMovieInfo((prev) => [...prev, r.data.title]);
