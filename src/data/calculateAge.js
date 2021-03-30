@@ -1,4 +1,8 @@
 export function calculateAge(year) {
-  let age = parseInt(year) + 1;
-  return <p>{age} yo</p>;
+  let age = parseInt(year) + 1 + ' YO';
+  if (year === 'unknown') {
+    age = 'Uhm... im not sure';
+  }
+
+  return <p>{age} </p>;
 }

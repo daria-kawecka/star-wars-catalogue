@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledCharacterList = styled.ul`
   padding: 15px 0px;
   width: 100%;
-  margin: 15px auto;
+  margin: 10vh auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -28,6 +28,7 @@ const CharacterInfo = ({ name }) => {
     if (isDataReceived) {
       getData(characterInfo.films);
     }
+    return () => setIsDataReceived(false);
   }, [isDataReceived]);
 
   return (

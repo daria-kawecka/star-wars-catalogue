@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 export const StyledListElement = styled.li`
   color: ${({ theme }) => theme.colors.light};
-  width: 35%;
+  width: 35vw;
   padding: 35px;
   list-style: none;
   text-decoration: none;
-  margin: 0;
+  margin: 30px 0px;
   text-align: center;
   text-transform: uppercase;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.light};
-  &:nth-last-of-type(1) {
-    border-bottom: none;
-  }
+  border-radius: 15px;
+  box-shadow: 0 0 1px 2px #efc34a, 0 0 12px 7px #e3e111;
 `;
 
 export const Text = styled.p`
@@ -19,7 +17,7 @@ export const Text = styled.p`
 `;
 export const GenderText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.m};
-  color: ${(props) => (props.gender === 'male' ? '#325dde' : props.gender === 'female' ? 'pink' : '#888888')};
+  color: ${(props) => (props.gender === 'male' ? '#3355cd' : props.gender === 'female' ? 'pink' : '#888888')};
 `;
 
 export const ListButton = styled.button`

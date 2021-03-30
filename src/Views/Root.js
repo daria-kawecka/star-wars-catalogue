@@ -5,7 +5,7 @@ import { theme } from 'assets/styles/theme';
 import StarfieldAnimation from 'react-starfield-animation';
 import CharacterProviders from 'providers/CharactersProvider';
 import CharacterList from 'components/CharacterList/CharacterList';
-import Search from 'components/Search/Search';
+import AppBar from 'components/AppBar/AppBar';
 const Root = () => {
   return (
     <div>
@@ -20,7 +20,7 @@ const Root = () => {
           }}
         />
         <CharacterProviders>
-          <Search></Search>
+          <AppBar />
           <CharacterList />
         </CharacterProviders>
       </ThemeProvider>

@@ -5,12 +5,14 @@ import axios from 'axios';
 export const CharactersContext = React.createContext({
   filteredCharacters: [],
   counter: 10,
+  isReady: false,
   handleClick: () => {},
-  handleSearch: () => {},
+  handleInputValue: () => {},
 });
 
 const CharacterProviders = ({ children }) => {
   const [characters, setCharacters] = useState([]);
+  const [isReady, setIsReady] = useState(false);
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [searchPhrase, setSearchPhrase] = useState('');
   const [counter, setCounter] = useState(10);
@@ -21,13 +23,13 @@ const CharacterProviders = ({ children }) => {
       .then(
         axios.spread(function (...res) {
           res.map((r) => setCharacters((prev) => [...prev, ...r.data.results]));
+          setIsReady(true);
         })
       )
       .catch((e) => {
         console.log(e);
       });
   };
-
   useEffect(() => {
     getData(CharacterAPI);
     window.addEventListener('scroll', handleScroll);
@@ -45,7 +47,7 @@ const CharacterProviders = ({ children }) => {
       setCounter((prev) => prev + 5);
     }
   };
-  //fetch data with button:
+  //or... fetch data with button:
   const handleClick = () => {
     setCounter((prev) => prev + 5);
   };
@@ -67,7 +69,7 @@ const CharacterProviders = ({ children }) => {
   };
 
   return (
-    <CharactersContext.Provider value={{ filteredCharacters, counter, handleClick, handleScroll, handleInputValue }}>
+    <CharactersContext.Provider value={{ filteredCharacters, counter, isReady, handleClick, handleInputValue }}>
       {children}
     </CharactersContext.Provider>
   );

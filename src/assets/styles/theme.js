@@ -1,6 +1,6 @@
 export const theme = {
   colors: {
-    yellow: '#cfbc1f',
+    yellow: '#e0cc28',
     yellowWithOpacity: 'rgba(207,207,31,0.7)',
     error: '#CF1F22',
     dark: '#131212',
