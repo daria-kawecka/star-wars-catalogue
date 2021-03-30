@@ -1,3 +1,5 @@
+import { device } from './device';
+
 export const theme = {
   colors: {
     yellow: '#e0cc28',
