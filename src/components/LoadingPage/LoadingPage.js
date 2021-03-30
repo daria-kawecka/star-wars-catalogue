@@ -10,7 +10,7 @@ const LoadingPage = () => {
   const { loadingProgress, isReady } = useContext(CharactersContext);
   return (
     <>
-      <CSSTransitionGroup transitionName="pageLeave" transitionLeave={true} transitionLeaveTimeout={1000}>
+      <CSSTransitionGroup transitionName="pageLeave" transitionLeave={true} transitionLeaveTimeout={500}>
         {loadingProgress < 100 || isReady === false ? (
           <LoadingWrapper>
             <BigBangStarField

@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { device } from 'assets/styles/device';
 
 const transitionName = `pageLeave`;
-const appearDuration = 1000;
+const appearDuration = 500;
 export const LoadingWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -15,7 +15,7 @@ export const LoadingWrapper = styled.div`
   background-color: #151414;
   &.${transitionName}-leave.${transitionName}-leave-active {
     opacity: 0;
-    transition: opacity 1000ms ease-in;
+    transition: opacity 500ms ease-in;
   }
 
   &.${transitionName}-leave-active {

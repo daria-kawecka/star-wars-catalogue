@@ -8,12 +8,14 @@ export const CharactersContext = React.createContext({
   isReady: false,
   searchPhrase: '',
   loadingProgres: 0,
+  searchError: false,
   handleClick: () => {},
   handleInputValue: () => {},
 });
 
 const CharacterProviders = ({ children }) => {
   const [characters, setCharacters] = useState([]);
+  const [searchError, setSearchError] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const [filteredCharacters, setFilteredCharacters] = useState([]);
@@ -46,13 +48,18 @@ const CharacterProviders = ({ children }) => {
         const numProgress = parseInt(Math.random() * 15, 10);
         return Math.min(prevState + numProgress, 100);
       });
-    }, 100);
+    }, 150);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  //search engine:
   useEffect(() => {
     handleSearch();
+    if (!filteredCharacters.length) setSearchError(true);
   }, [searchPhrase, characters]);
+  useEffect(() => {
+    if (!filteredCharacters.length) setSearchError(true);
+  }, [searchPhrase, filteredCharacters.length]);
 
   //HANDLERS:
   //fetch data instead of button:
@@ -74,13 +81,16 @@ const CharacterProviders = ({ children }) => {
     setFilteredCharacters(characters.filter(searchChar));
     function searchChar(character) {
       if (character.name.toLowerCase().includes(searchPhrase.toLowerCase())) {
+        setSearchError(false);
         return character;
       }
     }
   };
 
   return (
-    <CharactersContext.Provider value={{ filteredCharacters, counter, isReady, searchPhrase, loadingProgress, handleClick, handleInputValue }}>
+    <CharactersContext.Provider
+      value={{ filteredCharacters, counter, isReady, searchPhrase, loadingProgress, searchError, handleClick, handleInputValue }}
+    >
       {children}
     </CharactersContext.Provider>
   );
