@@ -11,7 +11,7 @@ from{
 export const StyledLoadingWrapper = styled.div`
   width: ${(props) => (props.size === 'big' ? '80vw' : '100%')};
   height: ${(props) => (props.size === 'big' ? '35vh' : '12vh')};
-  margin-top: 5%;
+  margin-top: ${(props) => (props.size === 'big' ? '15%' : '5%')};
   font-size: ${(props, theme) => (props.size === 'big' ? '25px' : '12px')};
   display: flex;
   justify-content: flex-start;
@@ -22,6 +22,7 @@ export const StyledLoadingWrapper = styled.div`
 export const LoadingText = styled.p`
   color: ${({ theme }) => theme.colors.light};
   width: 15%;
+  text-transform: uppercase;
 `;
 export const LoadingImage = styled.img`
   height: 100%;

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { device } from 'assets/styles/device';
+
 export const StyledListElement = styled.li`
   color: ${({ theme }) => theme.colors.light};
   width: 35vw;
@@ -10,16 +12,37 @@ export const StyledListElement = styled.li`
   text-transform: uppercase;
   border-radius: 15px;
   box-shadow: 0 0 1px 2px #efc34a, 0 0 12px 7px #e3e111;
+  position: relative;
+  top: 0;
+  @media ${device.tablet} {
+    width: 45vw;
+  }
 `;
 
 export const Text = styled.p`
   font-size: ${({ theme }) => theme.fontSize.m};
+  padding: 15px;
+  transition: all 0.6s linear;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 export const GenderText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${(props) => (props.gender === 'male' ? '#3355cd' : props.gender === 'female' ? 'pink' : '#888888')};
+  transition: all 0.6s linear;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
-
+export const TextNumber = styled.p`
+  color: ${({ theme }) => theme.colors.yellowWithOpacity};
+  font-size: ${({ theme }) => theme.fontSize.s};
+  text-align: left;
+  position: absolute;
+  top: 15px;
+  left: 25px;
+`;
 export const ListButton = styled.button`
   font-size: ${({ theme }) => theme.fontSize.s};
   outline: none;

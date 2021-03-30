@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { CharactersContext } from 'providers/CharactersProvider';
+import { InfoText } from './CharacterInfo.styles';
 import { calculateAge } from 'data/calculateAge';
-import LoadingData from '../LoadingData/LoadingData';
+import LoadingData from 'components/LoadingData/LoadingData';
 import axios from 'axios';
 
 const CharacterInfo = ({ name }) => {
@@ -23,7 +24,13 @@ const CharacterInfo = ({ name }) => {
   };
 
   useEffect(() => {
-    setCharacterInfo(...filteredCharacters.filter((character) => character.name === name));
+    setCharacterInfo(...filteredCharacters.filter(filterInfo));
+    function filterInfo(character) {
+      if (character.name === name) {
+        return character;
+      }
+    }
+
     setIsDataReceived(true);
     if (isDataReceived) {
       getData(characterInfo.films);
@@ -33,9 +40,9 @@ const CharacterInfo = ({ name }) => {
 
   return (
     <div>
-      <p>{characterInfo.height} cm</p>
-      {calculateAge(characterInfo.birth_year)}
-      {isLoaded ? movieInfo.map((title, index) => <p key={index}>{title}</p>) : <LoadingData size="small" />}
+      <InfoText>{characterInfo.height} cm</InfoText>
+      <InfoText>{calculateAge(characterInfo.birth_year)}</InfoText>
+      {isLoaded ? movieInfo.map((title, index) => <InfoText key={index}>{title}</InfoText>) : <LoadingData size="small" />}
     </div>
   );
 };

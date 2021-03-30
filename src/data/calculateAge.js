@@ -4,5 +4,5 @@ export function calculateAge(year) {
     age = 'Uhm... im not sure';
   }
 
-  return <p>{age} </p>;
+  return age;
 }

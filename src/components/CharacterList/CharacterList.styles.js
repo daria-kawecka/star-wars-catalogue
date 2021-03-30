@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from 'assets/styles/device';
 
 export const StyledCharacterList = styled.ul`
   padding: 15px 0px;
@@ -16,4 +17,7 @@ export const ListHeader = styled.p`
   text-align: center;
   font-weight: 700;
   text-transform: uppercase;
+  @media ${device.tablet} {
+    font-size: ${({ theme }) => theme.fontSize.l};
+  }
 `;

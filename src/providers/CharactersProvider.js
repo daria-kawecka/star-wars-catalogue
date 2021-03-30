@@ -6,6 +6,7 @@ export const CharactersContext = React.createContext({
   filteredCharacters: [],
   counter: 10,
   isReady: false,
+  searchPhrase: '',
   handleClick: () => {},
   handleInputValue: () => {},
 });
@@ -50,26 +51,23 @@ const CharacterProviders = ({ children }) => {
   //or... fetch data with button:
   const handleClick = () => {
     setCounter((prev) => prev + 5);
+    setSearchPhrase('');
   };
   //search character by name:
   const handleInputValue = (e) => {
     setSearchPhrase(e.target.value);
   };
   const handleSearch = () => {
-    setFilteredCharacters(
-      characters.filter((character) => {
-        if (
-          character.name.toLowerCase().includes(searchPhrase.toLowerCase()) &&
-          character.name.toLowerCase().indexOf(searchPhrase.toLowerCase()) > -1
-        ) {
-          return character;
-        }
-      })
-    );
+    setFilteredCharacters(characters.filter(searchChar));
+    function searchChar(character) {
+      if (character.name.toLowerCase().includes(searchPhrase.toLowerCase())) {
+        return character;
+      }
+    }
   };
 
   return (
-    <CharactersContext.Provider value={{ filteredCharacters, counter, isReady, handleClick, handleInputValue }}>
+    <CharactersContext.Provider value={{ filteredCharacters, counter, isReady, handleClick, handleInputValue, searchPhrase }}>
       {children}
     </CharactersContext.Provider>
   );

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from 'assets/styles/device';
 
 export const StyledAppBar = styled.div`
   position: fixed;
@@ -11,10 +12,21 @@ export const StyledAppBar = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.dark};
   box-shadow: 0px 0px 10px 2px #e3e111;
+  z-index: 1;
+  @media ${device.mobileL} {
+    height: 10vh;
+  }
 `;
 export const StyledAppBarText = styled.p`
   justify-items: flex-start;
   color: ${({ theme }) => theme.colors.light};
   font-size: ${({ theme }) => theme.fontSize.m};
   margin: 35px;
+  @media ${device.mobileL} {
+    font-size: ${({ theme }) => theme.fontSize.s};
+    margin: 20px;
+  }
+  @media ${device.mobileS} {
+    font-size: ${({ theme }) => theme.fontSize.xs};
+  }
 `;
