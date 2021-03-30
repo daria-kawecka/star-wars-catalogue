@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/star-wars-task/static/css/main.16306f99.chunk.css",
+    "main.js": "/star-wars-task/static/js/main.36e9d97b.chunk.js",
+    "main.js.map": "/star-wars-task/static/js/main.36e9d97b.chunk.js.map",
+    "runtime-main.js": "/star-wars-task/static/js/runtime-main.e5f8892e.js",
+    "runtime-main.js.map": "/star-wars-task/static/js/runtime-main.e5f8892e.js.map",
+    "static/js/2.cc90f02f.chunk.js": "/star-wars-task/static/js/2.cc90f02f.chunk.js",
+    "static/js/2.cc90f02f.chunk.js.map": "/star-wars-task/static/js/2.cc90f02f.chunk.js.map",
+    "index.html": "/star-wars-task/index.html",
+    "static/css/main.16306f99.chunk.css.map": "/star-wars-task/static/css/main.16306f99.chunk.css.map",
+    "static/js/2.cc90f02f.chunk.js.LICENSE.txt": "/star-wars-task/static/js/2.cc90f02f.chunk.js.LICENSE.txt",
+    "static/media/darth-vader.a805cd42.png": "/star-wars-task/static/media/darth-vader.a805cd42.png",
+    "static/media/death-star.e27fc376.png": "/star-wars-task/static/media/death-star.e27fc376.png",
+    "static/media/iconfinder_bb8.eaa17228.png": "/star-wars-task/static/media/iconfinder_bb8.eaa17228.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e5f8892e.js",
+    "static/js/2.cc90f02f.chunk.js",
+    "static/css/main.16306f99.chunk.css",
+    "static/js/main.36e9d97b.chunk.js"
+  ]
+}
