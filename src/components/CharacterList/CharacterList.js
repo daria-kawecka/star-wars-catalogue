@@ -6,10 +6,10 @@ import CharacterListItem from 'components/CharacterListItem/CharacterListItem';
 import LoadingData from 'components/LoadingData/LoadingData';
 
 const CharacterList = () => {
-  const { filteredCharacters, counter, isReady } = useContext(CharactersContext);
+  const { filteredCharacters, counter, isReady, loadingProgress } = useContext(CharactersContext);
   return (
     <>
-      {isReady ? (
+      {isReady && loadingProgress === 100 ? (
         <StyledCharacterList>
           <ListHeader>A long time ago in a galaxy far, far away...</ListHeader>
           {filteredCharacters.slice(0, counter).map((character, index) => {
@@ -18,7 +18,7 @@ const CharacterList = () => {
           <ShowMoreButton />
         </StyledCharacterList>
       ) : (
-        <LoadingData size="big" />
+        <LoadingData size="big" /> //extra
       )}
     </>
   );

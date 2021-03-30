@@ -16,6 +16,7 @@ export const StyledInput = styled.input`
   }
   @media ${device.mobileS} {
     padding: 5px 5px;
+    width: 83%;
   }
 `;
 export const StyledForm = styled.form`

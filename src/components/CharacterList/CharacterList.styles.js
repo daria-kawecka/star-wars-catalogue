@@ -10,6 +10,10 @@ export const StyledCharacterList = styled.ul`
   justify-content: center;
   align-items: center;
   cursor: default;
+  z-index: 200;
+  @media ${device.mobileLand} {
+    margin-top: 12vw;
+  }
 `;
 export const ListHeader = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xl};
@@ -19,5 +23,9 @@ export const ListHeader = styled.p`
   text-transform: uppercase;
   @media ${device.tablet} {
     font-size: ${({ theme }) => theme.fontSize.l};
+  }
+  @media ${device.mobileL} {
+    font-size: ${({ theme }) => theme.fontSize.m};
+    margin: 25px;
   }
 `;

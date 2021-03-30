@@ -5,8 +5,8 @@ import { StyledLoadingWrapper, LoadingImage, LoadingText } from './LoadingData.s
 const LoadingData = ({ size }) => {
   return (
     <StyledLoadingWrapper size={size}>
-      <LoadingImage src={robot} alt="bb-8" />
-      <LoadingText>beep-boop-beep</LoadingText>
+      <LoadingImage size={size} src={robot} alt="bb-8" />
+      <LoadingText size={size}>beep-boop-beep</LoadingText>
     </StyledLoadingWrapper>
   );
 };

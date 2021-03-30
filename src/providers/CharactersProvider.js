@@ -7,12 +7,14 @@ export const CharactersContext = React.createContext({
   counter: 10,
   isReady: false,
   searchPhrase: '',
+  loadingProgres: 0,
   handleClick: () => {},
   handleInputValue: () => {},
 });
 
 const CharacterProviders = ({ children }) => {
   const [characters, setCharacters] = useState([]);
+  const [loadingProgress, setLoadingProgress] = useState(0);
   const [isReady, setIsReady] = useState(false);
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [searchPhrase, setSearchPhrase] = useState('');
@@ -34,6 +36,17 @@ const CharacterProviders = ({ children }) => {
   useEffect(() => {
     getData(CharacterAPI);
     window.addEventListener('scroll', handleScroll);
+    //loading page:
+    const interval = setInterval(() => {
+      setLoadingProgress((prevState) => {
+        if (prevState === 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        const numProgress = parseInt(Math.random() * 15, 10);
+        return Math.min(prevState + numProgress, 100);
+      });
+    }, 100);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -67,7 +80,7 @@ const CharacterProviders = ({ children }) => {
   };
 
   return (
-    <CharactersContext.Provider value={{ filteredCharacters, counter, isReady, handleClick, handleInputValue, searchPhrase }}>
+    <CharactersContext.Provider value={{ filteredCharacters, counter, isReady, searchPhrase, loadingProgress, handleClick, handleInputValue }}>
       {children}
     </CharactersContext.Provider>
   );

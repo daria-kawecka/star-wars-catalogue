@@ -14,8 +14,13 @@ export const StyledListElement = styled.li`
   box-shadow: 0 0 1px 2px #efc34a, 0 0 12px 7px #e3e111;
   position: relative;
   top: 0;
+  overflow: hidden;
   @media ${device.tablet} {
     width: 45vw;
+  }
+  @media ${device.mobileL} {
+    width: 60vw;
+    padding: 20px;
   }
 `;
 
@@ -26,6 +31,10 @@ export const Text = styled.p`
   &:hover {
     transform: scale(1.05);
   }
+  @media ${device.mobileL} {
+    font-size: 18px;
+    padding: 5px;
+  }
 `;
 export const GenderText = styled.p`
   font-size: ${({ theme }) => theme.fontSize.m};
@@ -33,6 +42,10 @@ export const GenderText = styled.p`
   transition: all 0.6s linear;
   &:hover {
     transform: scale(1.1);
+  }
+  @media ${device.mobileL} {
+    font-size: 18px;
+    padding: 5px;
   }
 `;
 export const TextNumber = styled.p`
@@ -42,18 +55,30 @@ export const TextNumber = styled.p`
   position: absolute;
   top: 15px;
   left: 25px;
+  @media ${device.mobileL} {
+    top: 10px;
+    left: 15px;
+  }
+  @media ${device.mobileM} {
+    font-size: ${({ theme }) => theme.fontSize.xs};
+  }
 `;
 export const ListButton = styled.button`
   font-size: ${({ theme }) => theme.fontSize.s};
   outline: none;
   padding: 5px 10px;
   margin-top: 2%;
-  background-color: ${({ theme }) => theme.colors.yellowWithOpacity};
+  background-color: ${({ theme }) => theme.colors.yellow};
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.4s ease-in;
   &:hover {
-    background-color: ${({ theme }) => theme.colors.yellow};
+    background-color: ${({ theme }) => theme.colors.yellowWithOpacity};
+  }
+  @media ${device.mobileM} {
+    font-size: ${({ theme }) => theme.fontSize.xs};
+    padding: 5px 8px;
+    margin: 2% 0 4% 0;
   }
 `;
