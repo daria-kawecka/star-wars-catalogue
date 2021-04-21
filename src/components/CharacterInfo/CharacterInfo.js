@@ -13,7 +13,7 @@ const CharacterInfo = ({ name }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const getData = (apiArr) => {
-    axios.all(apiArr.map((arr) => axios.get(arr))).then(
+    axios.all(apiArr.map((arr) => axios.get('https://cors.bridged.cc/' + arr))).then(
       axios.spread(function (...res) {
         res.map((r) => {
           setMovieInfo((prev) => [...prev, r.data.title]);
