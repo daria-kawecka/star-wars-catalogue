@@ -2,7 +2,7 @@
   "name": "star-wars-task",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://daria-kawecka.github.io/star-wars-task/",
+  "homepage": "https://daria-kawecka.github.io/star-wars-catalogue/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
